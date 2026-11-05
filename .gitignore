@@ -30,6 +30,11 @@ pnpm-debug.log*
 Thumbs.db
 *.tsbuildinfo
 
-# Markdown Files (ignore all markdown files per project rule)
+# Markdown Files (ignore all markdown files, exempt root README.md)
 *.md
 **/*.md
+!README.md
+
+# Restricted Skills
+design-taste.skill
+*.skill
