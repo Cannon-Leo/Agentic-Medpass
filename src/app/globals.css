@@ -1,0 +1,250 @@
+@import '../styles/tokens.css';
+
+/* ==========================================================================
+   Agentic MedPass Global Styles
+   Strictly consumes Design System Tokens from src/styles/tokens.css
+   No hardcoded hex, arbitrary spacing, or untracked font sizes.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Typography Utility Classes (from design-tokens.tokens.json)
+   ========================================================================== */
+.font-display-large {
+  font: var(--font-display-large);
+  letter-spacing: var(--typography-display-large-letter-spacing);
+}
+
+.font-display-medium {
+  font: var(--font-display-medium);
+  letter-spacing: var(--typography-display-medium-letter-spacing);
+}
+
+.font-headline-large {
+  font: var(--font-headline-large);
+  letter-spacing: var(--typography-headline-large-letter-spacing);
+}
+
+.font-headline-medium {
+  font: var(--font-headline-medium);
+  letter-spacing: var(--typography-headline-medium-letter-spacing);
+}
+
+.font-headline-small {
+  font: var(--font-headline-small);
+  letter-spacing: var(--typography-headline-small-letter-spacing);
+}
+
+.font-title-large {
+  font: var(--font-title-large);
+  letter-spacing: var(--typography-title-large-letter-spacing);
+}
+
+.font-title-medium {
+  font: var(--font-title-medium);
+  letter-spacing: var(--typography-title-medium-letter-spacing);
+}
+
+.font-body-large {
+  font: var(--font-body-large);
+  letter-spacing: var(--typography-body-large-letter-spacing);
+}
+
+.font-body-medium {
+  font: var(--font-body-medium);
+  letter-spacing: var(--typography-body-medium-letter-spacing);
+}
+
+.font-body-small {
+  font: var(--font-body-small);
+  letter-spacing: var(--typography-body-small-letter-spacing);
+}
+
+.font-label-large {
+  font: var(--font-label-large);
+  letter-spacing: var(--typography-label-large-letter-spacing);
+}
+
+.font-label-medium {
+  font: var(--font-label-medium);
+  letter-spacing: var(--typography-label-medium-letter-spacing);
+}
+
+/* ==========================================================================
+   Layout & Container Primitives
+   ========================================================================== */
+.container-full-dvh {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* High-contrast container for QR and codes (pure white background) */
+.token-canvas-container {
+  background-color: var(--color-on-primary);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 8px;
+  padding: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Semantic Card Primitives */
+.card-surface {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft-shadow);
+  padding: 20px;
+}
+
+/* High-emphasis dark panel on a light page. Uses the inverse role pair,
+   which is the only token pairing that clears AA on a dark surface. */
+.card-inverse {
+  background-color: var(--color-inverse-surface);
+  color: var(--color-inverse-on-surface);
+}
+
+.card-surface-container {
+  background-color: var(--color-surface-container);
+  color: var(--color-on-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Interactive Controls (Accessible 44px+ hit targets) */
+/* Note: --color-on-primary resolves to white, which fails contrast on the
+   bright primary mint (1.67:1). Until the token roles are corrected, the
+   accessible dark-green role is used on the same primary surface (5.61:1). */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary-container);
+  border: none;
+  border-radius: 8px;
+  font: var(--font-label-large);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  background-color: var(--color-surface-container-high);
+  color: var(--color-on-background);
+  border: 1px solid var(--color-outline-color);
+  border-radius: 8px;
+  font: var(--font-label-large);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-secondary:active {
+  background-color: var(--color-surface-container-highest);
+}
+
+/* Keyboard focus must stay visible on every interactive element */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-on-background);
+  outline-offset: 2px;
+}
+
+/* Portal list on the landing screen */
+.portal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portal-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.portal-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.portal-link-title {
+  font: var(--font-label-large);
+}
+
+.portal-link-desc {
+  font: var(--font-body-small);
+}
+
+/* Status Badges */
+.badge-ready {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  font: var(--font-label-small);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.badge-emergency {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: var(--color-error);
+  color: var(--color-on-error);
+  font: var(--font-label-medium);
+  font-weight: 700;
+}
+

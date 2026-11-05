@@ -1,0 +1,180 @@
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [pgvector(map: "vector")]
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+enum UserRole {
+  STAFF
+  OWNER
+  DISPENSER
+  ADMIN
+}
+
+enum PrescriptionStatus {
+  DRAFT
+  PENDING_APPROVAL
+  ISSUED
+  COLLECTED
+  EXPIRED
+  CANCELLED
+}
+
+enum RefillStatus {
+  PENDING
+  DISPENSED
+  CANCELLED
+}
+
+model Clinic {
+  id            String         @id @default(uuid()) @db.Uuid
+  name          String
+  phone         String
+  address       String
+  ownerPinHash  String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  users         User[]
+  prescriptions Prescription[]
+
+  @@map("clinics")
+}
+
+model Pharmacy {
+  id            String         @id @default(uuid()) @db.Uuid
+  name          String
+  licenseNumber String         @unique
+  phone         String         @unique
+  address       String
+  isActive      Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  users         User[]
+  prescriptions Prescription[]
+
+  @@map("pharmacies")
+}
+
+model User {
+  id            String         @id @default(uuid()) @db.Uuid
+  clinicId      String?        @db.Uuid
+  pharmacyId    String?        @db.Uuid
+  name          String
+  email         String?        @unique
+  phone         String         @unique
+  role          UserRole       @default(STAFF)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  clinic        Clinic?        @relation(fields: [clinicId], references: [id], onDelete: Cascade)
+  pharmacy      Pharmacy?      @relation(fields: [pharmacyId], references: [id], onDelete: Cascade)
+  refillsLedger RefillRecord[]
+
+  @@index([clinicId])
+  @@index([pharmacyId])
+  @@map("users")
+}
+
+model Patient {
+  id            String         @id @default(uuid()) @db.Uuid
+  name          String
+  phoneNumber   String         @unique
+  birthYear     Int
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  prescriptions Prescription[]
+
+  @@index([phoneNumber])
+  @@map("patients")
+}
+
+model DrugMonograph {
+  id                  String         @id @default(uuid()) @db.Uuid
+  brandName           String
+  genericName         String
+  standardDoseRange   String
+  storageInstructions String
+  excursionRules      String
+  leafletMarkdown     String
+  isActive            Boolean        @default(true)
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+  prescriptions       Prescription[]
+
+  @@map("drug_monographs")
+}
+
+model Prescription {
+  id                 String             @id @default(uuid()) @db.Uuid
+  clinicId           String             @db.Uuid
+  pharmacyId         String             @db.Uuid
+  patientId          String             @db.Uuid
+  drugId             String             @db.Uuid
+  rawInputText       String
+  structuredDrugName String
+  dose               String
+  frequencyText      String
+  durationMonths     Int                @default(1)
+  dosageInstructions String
+  storageNotes       String
+  totalRefills       Int                @default(1)
+  pickupCode         String             @unique
+  accessToken        String             @unique @default(uuid())
+  status             PrescriptionStatus @default(DRAFT)
+  approvedAt         DateTime?
+  approvedBy         String?
+  expiresAt          DateTime
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  clinic        Clinic         @relation(fields: [clinicId], references: [id], onDelete: Restrict)
+  pharmacy      Pharmacy       @relation(fields: [pharmacyId], references: [id], onDelete: Restrict)
+  patient       Patient        @relation(fields: [patientId], references: [id], onDelete: Restrict)
+  drugMonograph DrugMonograph  @relation(fields: [drugId], references: [id], onDelete: Restrict)
+  refills       RefillRecord[]
+  auditLogs     AuditLog[]
+
+  @@index([clinicId])
+  @@index([pharmacyId])
+  @@index([patientId])
+  @@index([pickupCode])
+  @@index([accessToken])
+  @@map("prescriptions")
+}
+
+model RefillRecord {
+  id             String       @id @default(uuid()) @db.Uuid
+  prescriptionId String       @db.Uuid
+  dispensedById  String       @db.Uuid
+  dispensedAt    DateTime     @default(now())
+  refillNumber   Int
+  pharmacyNotes  String?
+  status         RefillStatus @default(DISPENSED)
+
+  prescription Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Restrict)
+  dispenser    User         @relation(fields: [dispensedById], references: [id], onDelete: Restrict)
+
+  @@index([prescriptionId])
+  @@index([dispensedById])
+  @@map("refill_records")
+}
+
+model AuditLog {
+  id             String   @id @default(uuid()) @db.Uuid
+  prescriptionId String   @db.Uuid
+  actorId        String
+  action         String
+  metadata       Json?
+  timestamp      DateTime @default(now())
+
+  prescription Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+
+  @@index([prescriptionId])
+  @@map("audit_logs")
+}
+

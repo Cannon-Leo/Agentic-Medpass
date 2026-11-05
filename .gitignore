@@ -28,6 +28,7 @@ pnpm-debug.log*
 # System & OS
 .DS_Store
 Thumbs.db
+*.tsbuildinfo
 
 # Markdown Files (ignore all markdown files per project rule)
 *.md
