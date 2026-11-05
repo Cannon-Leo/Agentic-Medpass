@@ -1,0 +1,314 @@
+/* ==========================================================================
+   AGENTIC MEDPASS DESIGN SYSTEM TOKENS
+   Generated automatically from: design-tokens.tokens.json
+   Iconography Source of Truth: Lucide Icons (https://lucide.dev/icons/)
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     1. PRIMITIVES (Palette swatches & key colors)
+     CRITICAL: Do NOT use primitive variables directly in UI components.
+     Always use semantic Color Roles (--color-*) below.
+     ======================================================================== */
+
+  /* Primitives - Key Colors */
+  --primitive-key-colors-primary-key-color: #00e3aa;
+  --primitive-key-colors-secondary-key-color: #008f70;
+  --primitive-key-colors-tertiary-key-color: #75f8d2;
+  --primitive-key-colors-neutral-key-color: #717975;
+  --primitive-key-colors-neutral-variation-key-color: #6a7b73;
+  --primitive-key-colors-error-key-color: #ff1111;
+  --primitive-key-colors-warning-key-color: #ffa500;
+  --primitive-key-colors-accent-complimentary-key-color: #e30039;
+  --primitive-key-colors-accent-key-color: #aa00e3;
+
+  /* Primitives - Palette: primary */
+  --primitive-color-palettes-primary-primary-0: #000000;
+  --primitive-color-palettes-primary-primary-1: #002116;
+  --primitive-color-palettes-primary-primary-2: #003828;
+  --primitive-color-palettes-primary-primary-3: #00513b;
+  --primitive-color-palettes-primary-primary-4: #00e3aa;
+  --primitive-color-palettes-primary-primary-5: #008864;
+  --primitive-color-palettes-primary-primary-6: #00a47a;
+  --primitive-color-palettes-primary-primary-7: #00c291;
+  --primitive-color-palettes-primary-primary-8: #00e1a8;
+  --primitive-color-palettes-primary-primary-9: #45fec3;
+  --primitive-color-palettes-primary-primary-10: #bcffe0;
+  --primitive-color-palettes-primary-primary-11: #e7fff1;
+  --primitive-color-palettes-primary-primary-12: #f4fff7;
+  --primitive-color-palettes-primary-primary-13: #ffffff;
+
+  /* Primitives - Palette: secondary */
+  --primitive-color-palettes-secondary-secondary-0: #000000;
+  --primitive-color-palettes-secondary-secondary-1: #002117;
+  --primitive-color-palettes-secondary-secondary-2: #00382a;
+  --primitive-color-palettes-secondary-secondary-3: #00513e;
+  --primitive-color-palettes-secondary-secondary-4: #008f70;
+  --primitive-color-palettes-secondary-secondary-6: #2ca282;
+  --primitive-color-palettes-secondary-secondary-5: #00876a;
+  --primitive-color-palettes-secondary-secondary-7: #4ebe9c;
+  --primitive-color-palettes-secondary-secondary-8: #6cdab7;
+  --primitive-color-palettes-secondary-secondary-10: #baffe5;
+  --primitive-color-palettes-secondary-secondary-9: #89f7d2;
+  --primitive-color-palettes-secondary-secondary-11: #e7fff3;
+  --primitive-color-palettes-secondary-secondary-12: #f3fff8;
+  --primitive-color-palettes-secondary-secondary-13: #ffffff;
+
+  /* Primitives - Palette: tertiary */
+  --primitive-color-palettes-tertiary-tertiary-0: #000000;
+  --primitive-color-palettes-tertiary-tertiary-2: #00382b;
+  --primitive-color-palettes-tertiary-tertiary-1: #002018;
+  --primitive-color-palettes-tertiary-tertiary-3: #005140;
+  --primitive-color-palettes-tertiary-tertiary-7: #32c09d;
+  --primitive-color-palettes-tertiary-tertiary-6: #00a483;
+  --primitive-color-palettes-tertiary-tertiary-4: #75f8d2;
+  --primitive-color-palettes-tertiary-tertiary-5: #00876c;
+  --primitive-color-palettes-tertiary-tertiary-8: #56dcb8;
+  --primitive-color-palettes-tertiary-tertiary-9: #76f9d3;
+  --primitive-color-palettes-tertiary-tertiary-13: #ffffff;
+  --primitive-color-palettes-tertiary-tertiary-11: #e6fff4;
+  --primitive-color-palettes-tertiary-tertiary-10: #b9ffe6;
+  --primitive-color-palettes-tertiary-tertiary-12: #f3fff8;
+
+  /* Primitives - Palette: neutral */
+  --primitive-color-palettes-neutral-neutral-0: #000000;
+  --primitive-color-palettes-neutral-neutral-8: #c0c8c4;
+  --primitive-color-palettes-neutral-neutral-7: #a5ada9;
+  --primitive-color-palettes-neutral-neutral-6: #8a938e;
+  --primitive-color-palettes-neutral-neutral-5: #717975;
+  --primitive-color-palettes-neutral-neutral-4: #717975;
+  --primitive-color-palettes-neutral-neutral-3: #414845;
+  --primitive-color-palettes-neutral-neutral-1: #161d1a;
+  --primitive-color-palettes-neutral-neutral-2: #2a322f;
+  --primitive-color-palettes-neutral-neutral-12: #f6fef9;
+  --primitive-color-palettes-neutral-neutral-13: #ffffff;
+  --primitive-color-palettes-neutral-neutral-10: #ebf3ee;
+  --primitive-color-palettes-neutral-neutral-11: #f3fbf6;
+  --primitive-color-palettes-neutral-neutral-9: #dce4df;
+
+  /* Primitives - Palette: neutral var */
+  --primitive-color-palettes-neutral-var-neutral-var-0: #000000;
+  --primitive-color-palettes-neutral-var-neutral-var-13: #ffffff;
+  --primitive-color-palettes-neutral-var-neutral-var-12: #f4fff8;
+  --primitive-color-palettes-neutral-var-neutral-var-11: #ebfef4;
+  --primitive-color-palettes-neutral-var-neutral-var-10: #e3f5eb;
+  --primitive-color-palettes-neutral-var-neutral-var-9: #d5e7dd;
+  --primitive-color-palettes-neutral-var-neutral-var-8: #b9cbc1;
+  --primitive-color-palettes-neutral-var-neutral-var-7: #9eafa6;
+  --primitive-color-palettes-neutral-var-neutral-var-6: #83958c;
+  --primitive-color-palettes-neutral-var-neutral-var-5: #6a7b73;
+  --primitive-color-palettes-neutral-var-neutral-var-4: #6a7b73;
+  --primitive-color-palettes-neutral-var-neutral-var-3: #3a4a43;
+  --primitive-color-palettes-neutral-var-neutral-var-1: #0f1f19;
+  --primitive-color-palettes-neutral-var-neutral-var-2: #24342d;
+
+  /* Primitives - Palette: error */
+  --primitive-color-palettes-error-error-0: #000000;
+  --primitive-color-palettes-error-error-13: #ffffff;
+  --primitive-color-palettes-error-error-12: #fffbff;
+  --primitive-color-palettes-error-error-11: #fff8f7;
+  --primitive-color-palettes-error-error-10: #ffedea;
+  --primitive-color-palettes-error-error-9: #ffdad5;
+  --primitive-color-palettes-error-error-8: #ffb4a9;
+  --primitive-color-palettes-error-error-7: #ff8a7a;
+  --primitive-color-palettes-error-error-6: #ff5543;
+  --primitive-color-palettes-error-error-5: #ef0009;
+  --primitive-color-palettes-error-error-4: #ff1111;
+  --primitive-color-palettes-error-error-3: #930003;
+  --primitive-color-palettes-error-error-2: #690001;
+  --primitive-color-palettes-error-error-1: #410000;
+
+  /* Primitives - Palette: warning */
+  --primitive-color-palettes-warning-warning-0: #000000;
+  --primitive-color-palettes-warning-warning-7: #ed9900;
+  --primitive-color-palettes-warning-warning-6: #c98100;
+  --primitive-color-palettes-warning-warning-5: #a66a00;
+  --primitive-color-palettes-warning-warning-4: #ffa500;
+  --primitive-color-palettes-warning-warning-3: #653e00;
+  --primitive-color-palettes-warning-warning-1: #2a1700;
+  --primitive-color-palettes-warning-warning-2: #462a00;
+  --primitive-color-palettes-warning-warning-10: #ffeede;
+  --primitive-color-palettes-warning-warning-11: #fff8f4;
+  --primitive-color-palettes-warning-warning-12: #fffbff;
+  --primitive-color-palettes-warning-warning-8: #ffb95c;
+  --primitive-color-palettes-warning-warning-9: #ffddb7;
+  --primitive-color-palettes-warning-warning-13: #ffffff;
+
+  /* Primitives - Palette: accent */
+  --primitive-color-palettes-accent-accent: #aa00e3;
+
+  /* Primitives - Palette: accent compliment */
+  --primitive-color-palettes-accent-compliment-accent-compliement: #e30039;
+
+  /* ========================================================================
+     2. COLOR ROLES (Semantic UI tokens)
+     USE THESE DIRECTLY in UI components (buttons, surfaces, typography, borders).
+     ======================================================================== */
+  --color-primary: var(--primitive-color-palettes-primary-primary-4);
+  --color-on-primary: var(--primitive-color-palettes-primary-primary-13);
+  --color-primary-container: var(--primitive-color-palettes-primary-primary-9);
+  --color-on-primary-container: var(--primitive-color-palettes-primary-primary-3);
+  --color-secondary: var(--primitive-color-palettes-secondary-secondary-4);
+  --color-on-secondary: var(--primitive-color-palettes-secondary-secondary-13);
+  --color-secondary-container: var(--primitive-color-palettes-secondary-secondary-9);
+  --color-on-secondary-container: var(--primitive-color-palettes-secondary-secondary-3);
+  --color-tertiary: var(--primitive-color-palettes-tertiary-tertiary-4);
+  --color-on-tertiary: var(--primitive-color-palettes-tertiary-tertiary-13);
+  --color-tertiary-container: var(--primitive-color-palettes-tertiary-tertiary-9);
+  --color-on-tertiary-container: var(--primitive-color-palettes-tertiary-tertiary-3);
+  --color-error: var(--primitive-color-palettes-error-error-4);
+  --color-on-error: var(--primitive-color-palettes-error-error-13);
+  --color-error-container: var(--primitive-color-palettes-error-error-9);
+  --color-on-error-container: var(--primitive-color-palettes-error-error-3);
+  --color-surface: var(--primitive-color-palettes-neutral-neutral-4);
+  --color-on-surface: var(--primitive-color-palettes-neutral-neutral-13);
+  --color-surface-variant: var(--primitive-color-palettes-neutral-neutral-9);
+  --color-on-surface-variant: var(--primitive-color-palettes-neutral-neutral-3);
+  --color-surface-container-highest: var(--primitive-color-palettes-neutral-neutral-9);
+  --color-surface-container-high: var(--primitive-color-palettes-neutral-neutral-10);
+  --color-surface-container-low: var(--primitive-color-palettes-neutral-neutral-11);
+  --color-surface-container: var(--primitive-color-palettes-neutral-neutral-12);
+  --color-surface-container-lowest: var(--primitive-color-palettes-neutral-neutral-13);
+  --color-inverse-surface: var(--primitive-color-palettes-neutral-neutral-2);
+  --color-inverse-on-surface: var(--primitive-color-palettes-neutral-neutral-11);
+  --color-surface-tint: var(--primitive-color-palettes-primary-primary-4);
+  --color-outline-color: var(--primitive-color-palettes-neutral-var-neutral-var-8);
+  --color-outline-variant: var(--primitive-color-palettes-neutral-var-neutral-var-9);
+  --color-primary-fixed: var(--primitive-color-palettes-primary-primary-9);
+  --color-on-primary-fixed: var(--primitive-color-palettes-primary-primary-1);
+  --color-primary-fixed-dim: var(--primitive-color-palettes-primary-primary-8);
+  --color-on-primary-fixed-variant: var(--primitive-color-palettes-primary-primary-3);
+  --color-inverse-primary: var(--primitive-color-palettes-primary-primary-8);
+  --color-secondary-fixed: var(--primitive-color-palettes-secondary-secondary-9);
+  --color-on-secondary-fixed: var(--color-primary-fixed-dim);
+  --color-secondary-fixed-dim: var(--primitive-color-palettes-secondary-secondary-8);
+  --color-on-secondary-fixed-variant: var(--primitive-color-palettes-secondary-secondary-3);
+  --color-tertiary-fixed: var(--primitive-color-palettes-tertiary-tertiary-9);
+  --color-on-tertiary-fixed: var(--primitive-color-palettes-tertiary-tertiary-1);
+  --color-tertiary-fixed-dim: var(--primitive-color-palettes-tertiary-tertiary-8);
+  --color-on-tertiary-fixed-variant: var(--primitive-color-palettes-tertiary-tertiary-3);
+  --color-background: var(--primitive-color-palettes-neutral-neutral-12);
+  --color-on-background: var(--primitive-color-palettes-neutral-neutral-1);
+  --color-surface-bright: var(--primitive-color-palettes-neutral-neutral-12);
+  --color-surface-dim: var(--primitive-color-palettes-neutral-neutral-11);
+  --color-scrim: var(--primitive-color-palettes-neutral-neutral-0);
+  --color-shadow: var(--primitive-color-palettes-primary-primary-1);
+
+  /* ========================================================================
+     3. TYPOGRAPHY TOKENS
+     Font family, size, line-height, letter-spacing, and font-weight.
+     ======================================================================== */
+  --font-family-base: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Typography: display large */
+  --typography-display-large-size: 64px;
+  --typography-display-large-line-height: 96px;
+  --typography-display-large-weight: 700;
+  --typography-display-large-letter-spacing: -3px;
+  --font-display-large: 700 64px/96px var(--font-family-base);
+
+  /* Typography: display medium */
+  --typography-display-medium-size: 50px;
+  --typography-display-medium-line-height: 75px;
+  --typography-display-medium-weight: 600;
+  --typography-display-medium-letter-spacing: -3px;
+  --font-display-medium: 600 50px/75px var(--font-family-base);
+
+  /* Typography: display small */
+  --typography-display-small-size: 40px;
+  --typography-display-small-line-height: 60px;
+  --typography-display-small-weight: 600;
+  --typography-display-small-letter-spacing: -2px;
+  --font-display-small: 600 40px/60px var(--font-family-base);
+
+  /* Typography: headline large */
+  --typography-headline-large-size: 32px;
+  --typography-headline-large-line-height: 48px;
+  --typography-headline-large-weight: 500;
+  --typography-headline-large-letter-spacing: -1.8px;
+  --font-headline-large: 500 32px/48px var(--font-family-base);
+
+  /* Typography: headline medium */
+  --typography-headline-medium-size: 28px;
+  --typography-headline-medium-line-height: 42px;
+  --typography-headline-medium-weight: 500;
+  --typography-headline-medium-letter-spacing: -1.75px;
+  --font-headline-medium: 500 28px/42px var(--font-family-base);
+
+  /* Typography: headline small */
+  --typography-headline-small-size: 24px;
+  --typography-headline-small-line-height: 36px;
+  --typography-headline-small-weight: 500;
+  --typography-headline-small-letter-spacing: -1.45px;
+  --font-headline-small: 500 24px/36px var(--font-family-base);
+
+  /* Typography: title large */
+  --typography-title-large-size: 22px;
+  --typography-title-large-line-height: 33px;
+  --typography-title-large-weight: 500;
+  --typography-title-large-letter-spacing: -1px;
+  --font-title-large: 500 22px/33px var(--font-family-base);
+
+  /* Typography: title medium */
+  --typography-title-medium-size: 16px;
+  --typography-title-medium-line-height: 24px;
+  --typography-title-medium-weight: 500;
+  --typography-title-medium-letter-spacing: -1px;
+  --font-title-medium: 500 16px/24px var(--font-family-base);
+
+  /* Typography: title small */
+  --typography-title-small-size: 14px;
+  --typography-title-small-line-height: 21px;
+  --typography-title-small-weight: 500;
+  --typography-title-small-letter-spacing: -0.5px;
+  --font-title-small: 500 14px/21px var(--font-family-base);
+
+  /* Typography: body large */
+  --typography-body-large-size: 16px;
+  --typography-body-large-line-height: 24px;
+  --typography-body-large-weight: 500;
+  --typography-body-large-letter-spacing: -0.85px;
+  --font-body-large: 500 16px/24px var(--font-family-base);
+
+  /* Typography: body medium */
+  --typography-body-medium-size: 14px;
+  --typography-body-medium-line-height: 21px;
+  --typography-body-medium-weight: 500;
+  --typography-body-medium-letter-spacing: -0.85px;
+  --font-body-medium: 500 14px/21px var(--font-family-base);
+
+  /* Typography: body small */
+  --typography-body-small-size: 12px;
+  --typography-body-small-line-height: 18px;
+  --typography-body-small-weight: 500;
+  --typography-body-small-letter-spacing: -0.4px;
+  --font-body-small: 500 12px/18px var(--font-family-base);
+
+  /* Typography: label large */
+  --typography-label-large-size: 14px;
+  --typography-label-large-line-height: 21px;
+  --typography-label-large-weight: 500;
+  --typography-label-large-letter-spacing: -0.85px;
+  --font-label-large: 500 14px/21px var(--font-family-base);
+
+  /* Typography: label  medium */
+  --typography-label-medium-size: 12px;
+  --typography-label-medium-line-height: 18px;
+  --typography-label-medium-weight: 500;
+  --typography-label-medium-letter-spacing: -0.85px;
+  --font-label-medium: 500 12px/18px var(--font-family-base);
+
+  /* Typography: label small */
+  --typography-label-small-size: 11px;
+  --typography-label-small-line-height: 16.5px;
+  --typography-label-small-weight: 500;
+  --typography-label-small-letter-spacing: -0.4px;
+  --font-label-small: 500 11px/16.5px var(--font-family-base);
+
+  /* ========================================================================
+     4. ELEVATION / SHADOW TOKENS
+     ======================================================================== */
+  --shadow-soft-shadow: 1.5px 6px 30px 0px rgba(0, 227, 170, 0.122);
+  --shadow-medium-shadow: 4px 6px 24px 0px rgba(0, 227, 170, 0.18);
+  --shadow-hard-shadow: 6px 10px 20px 0px rgba(0, 227, 170, 0.2);
+}
